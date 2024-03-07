@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const session = require('express-session')
 const app = express()
-
+const port = 3000
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -22,7 +22,7 @@ mongoose.set('strictQuery', true);
 mongoose.connect(localDb,{useNewUrlPArser:true,useUnifiedTopology:true})
 .then((result)=>{
    console.log('connection successfull');
-   app.listen(3000,()=>{
+   app.listen(port,()=>{
          console.log("Project running on port 3000")
    });
 })
